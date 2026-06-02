@@ -1,9 +1,11 @@
 <?php
-$host     = "TU_MYSQL_HOST";
-$port     = "TU_MYSQL_PORT";
-$dbname   = "TU_MYSQL_DATABASE";
-$user     = "TU_MYSQL_USER";
-$password = "TU_MYSQL_PASSWORD";
+$url = parse_url("mysql://root:LGTsQbSolFSzCnSTTvtSMdDsXnQwnwMc@zephyr.proxy.rlwy.net:59275/railway");
+
+$host     = $url["host"];
+$port     = $url["port"];
+$dbname   = ltrim($url["path"], "/");
+$user     = $url["user"];
+$password = $url["pass"];
 
 try {
     $pdo = new PDO(
